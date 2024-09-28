@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.example.demo.dto.UserDto;
 import com.example.demo.enums.UserType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -52,6 +53,16 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return false;
+    }
+
+    public UserDto getUserDto(){
+        UserDto userDto = new UserDto();
+        userDto.setId(id);
+        userDto.setName(name);
+        userDto.setEmail(email);
+        userDto.setPassword(password);
+        userDto.setRole(role);
+        return userDto;
     }
 
 }
